@@ -1,0 +1,45 @@
+# import * from "schema.graphql"
+query homeQ{
+  home: page(url:"https://opengameart.org"){
+    title
+    urlStr
+    artBlocks{
+      title
+      items{
+        title
+        url
+        description
+        attributionInstruction
+        lowImageUrl
+        license
+        favorites
+        previewImages{
+          previewUrl
+          fullUrl
+          isAudio
+        }
+        author{
+          name
+          thumbnailUrl
+        }
+        comments{
+          author{
+            name
+            url
+          }
+          userThumb
+          postDate
+          body
+        }
+        tags{
+          tagId
+          name
+        }
+        collections{
+          name
+          url
+        }
+      }
+    }
+  }
+}

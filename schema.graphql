@@ -1,0 +1,75 @@
+# source: https://ogadartapi.herokuapp.com/graphql
+# timestamp: Tue Dec 03 2019 16:34:14 GMT+0530 (India Standard Time)
+
+type ArtBlock {
+  items: [ArtItem]
+  hasPages: Boolean
+  lastPage: Int
+  currentPage: Int
+  title: String
+}
+
+type ArtItem {
+  title: String
+  url: String
+  lowImageUrl: String
+  license: [String]
+  author: User
+  previewImages: [PreviewImage]
+  artType: ArtType
+  tags: [Tag]
+  description: String
+  attributionInstruction: String
+  favorites: Int
+  collections: [Collection]
+  comments: [Comment]
+}
+
+type ArtType {
+  name: String
+  artTypeId: Int
+}
+
+type Collection {
+  name: String
+  url: String
+}
+
+type Comment {
+  author: User
+  postDate: String
+  body: String
+  userThumb: String
+}
+
+"""An ISO-8601 Date."""
+scalar Date
+
+type Page {
+  urlStr: String
+  artBlocks: [ArtBlock]
+  title: String
+}
+
+type PreviewImage {
+  previewUrl: String
+  isAudio: Boolean
+  fullUrl: String
+}
+
+type Query {
+  page(url: String): Page
+  art(url: String): ArtItem
+}
+
+type Tag {
+  name: String
+  tagId: String
+}
+
+type User {
+  name: String
+  isAnonymous: Boolean
+  url: String
+  thumbnailUrl: String
+}

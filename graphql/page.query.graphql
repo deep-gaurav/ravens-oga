@@ -1,0 +1,27 @@
+# import * from "schema.graphql"
+
+
+query pageQ($url:String!){
+  page(url:$url){
+    title
+    urlStr
+    artBlocks{
+      title
+      items{
+        title
+        url
+        description
+        attributionInstruction
+        license
+        previewImages{
+          previewUrl
+          fullUrl
+        }
+        author{
+          name
+          thumbnailUrl
+        }
+      }
+    }
+  }
+}

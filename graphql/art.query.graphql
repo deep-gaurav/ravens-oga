@@ -1,0 +1,33 @@
+# import * from "schema.graphql"
+query artQ($url:String!){
+  art(url:$url){
+    title
+    url
+    description
+    attributionInstruction
+    lowImageUrl
+    isAudio
+    previewImages{
+      previewUrl
+      fullUrl
+    }
+    tags{
+      name
+      tagId
+    }
+    collections{
+      name
+      url
+    }
+    favorites
+    comments{
+      author{
+        name
+        url
+      }
+      userThumb
+      postDate
+      body
+    }
+  }
+}

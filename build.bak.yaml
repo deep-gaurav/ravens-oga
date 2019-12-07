@@ -1,0 +1,23 @@
+
+targets:
+  $default:
+    sources:
+      - lib/**
+      - graphql/**
+      - schema.graphql.json
+    builders:
+      artemis:
+        options:
+          schema_mapping:
+            - add_query_prefix: true
+              schema: schema.graphql.json
+              queries_glob: graphql/**.graphql
+              output: lib/graphql/graphQLapi.dart
+
+      # build_web_compilers|entrypoint:
+      #   generate_for:
+      #     - lib/main.dart
+      #   options:
+      #     dart2js_args:
+      #       - --no-source-maps
+      #       - -O4

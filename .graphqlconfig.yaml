@@ -1,0 +1,6 @@
+projects:
+  ogaapi:
+    schemaPath: schema.graphql
+    extensions:
+      endpoints:
+        default: 'https://ogadartapi.herokuapp.com/graphql'
